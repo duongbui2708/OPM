@@ -26,6 +26,9 @@ namespace OPM.GUI
         public delegate void RequestDashBoardOpenConfirmForm(string strIDContract, string strKHMS, string strPONumber, string strPOID);
         public RequestDashBoardOpenConfirmForm requestDashBoardOpenConfirmPOForm;
 
+        public delegate void RequestDashBoardPurchaseOderForm(string strIDPO, string strKHMS);
+        public RequestDashBoardPurchaseOderForm requestDashBoardPurchaseOderForm;
+
         public PurchaseOderInfor()
         {
             InitializeComponent();
@@ -136,7 +139,7 @@ namespace OPM.GUI
             /*Request DashBoard Open NTKT Form*/
             string strContract = "Contract_" + txbIDContract.Text.ToString();
             /*Request DashBoard Open PO Form*/
-            requestDashBoardOpenNTKTForm(txbKHMS.Text, strContract, txbPOCode.Text, txbPOName.Text) ;
+            requestDashBoardOpenNTKTForm(txbKHMS.Text,strContract,txbPOCode.Text, txbPOName.Text) ;
             return;
 
         }

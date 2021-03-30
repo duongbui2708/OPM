@@ -429,6 +429,7 @@ namespace OPM.WordHandler
                 FindAndReplace(wordApp, "<DC>", " " + objPO.NumberOfDevice + " ");
                 FindAndReplace(wordApp, "<PDC>", " " + (Math.Round((objPO.NumberOfDevice)*0.02)) + " ");
                 FindAndReplace(wordApp, "<DateNow>", " " + DateTime.Now.ToString("dd/MM/yyyy") + " ");
+
                 FindAndReplace(wordApp, "<Contract_ID>", " " + contractObject.IdContract + " ");
                 FindAndReplace(wordApp, "<Contract_Name>", " " + contractObject.NameContract + " ");
                 FindAndReplace(wordApp, "<KHMS>", " " + contractObject.KHMS + " ");

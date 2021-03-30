@@ -19,6 +19,9 @@ namespace OPM.GUI
         public delegate void RequestDashBoardOpenNTKTForm(string strIDContract, string strKHMS, string strPONumber, string strPOID);
         public RequestDashBoardOpenNTKTForm requestDashBoardOpenNTKTForm;
 
+        public delegate void RequestDashBoardPurchaseOderForm(string strIDPO, string KHMS);
+        public RequestDashBoardPurchaseOderForm requestDashBoardPurchaseOderForm;
+
         
 
         public NTKTInfor()
@@ -109,6 +112,18 @@ namespace OPM.GUI
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if(txbPOID.Text != null)
+            {
+                //ContractInfoChildForm contractInfoChildForm = new ContractInfoChildForm();
+                //contractInfoChildForm.RequestDashBoardOpenPOForm = new ContractInfoChildForm.RequestDashBoardOpenChildForm(OP)
+                requestDashBoardPurchaseOderForm(txbPOID.Text, txbKHMS.Text);
+                PurchaseOderInfor purchaseOderInfor = new PurchaseOderInfor();
+                //purchaseOderInfor.SetValueItemForPO();
+            }
+            else
+            {
+                //tra ve form rong
+            }
             return;
         }
         //@Dưỡng Bùi -- Show thông tin NTKT lên UI

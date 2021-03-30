@@ -246,9 +246,13 @@ namespace OPM.OPMEnginee
 
         }
 
-        public int UpdateExistedContract(ContractObj newContract)
+        public int UpdateExistedContract(ContractObj contractObj)
         {
+            
+            string strUpdateContract = "update Contract set namecontract = N'"+ contractObj.NameContract +"', codeaccouting = '"+contractObj.CodeAccounting+"', datesigned = '"+contractObj.DateSigned+"',typecontract = N'"+contractObj.TypeContract+"', durationcontract = '"+contractObj.DurationContract+"', activedate='"+contractObj.ActiveDateContract+"', valuecontract = '"+contractObj.ValueContract+"', durationpo = '"+contractObj.DurationGuranteePO+"', id_siteA = N'"+contractObj.SiteA+"', id_siteB = N'"+contractObj.SiteB+"',KHMS = N'"+contractObj.KHMS+"' where id = '"+contractObj.IdContract+ "'";
+            int ret = OPMDBHandler.fInsertData(strUpdateContract);
             return 1;
+
         }
         public int InsertNewContract(IContract contract)
         {

@@ -21,7 +21,7 @@ namespace OPM.OPMEnginee
         {
         }
 
-        public SiteInfo(string id, string type, string headquaterInfo, string address, string phonenumber, string tin, string account, string representative, string landlineSiteA, string faxSiteA)
+        public SiteInfo(string id, string type, string headquaterInfo, string address, string phonenumber, string tin, string account, string representative)
         {
             Id = id;
             Type = type;
@@ -41,7 +41,10 @@ namespace OPM.OPMEnginee
         public string Tin { get => _tin; set => _tin = value; }
         public string Account { get => _account; set => _account = value; }
         public string Representative { get => _representative; set => _representative = value; }
+<<<<<<< HEAD
         
+=======
+>>>>>>> b509c2c9bcd2219a602f23a229b723a7d425a6d1
 
         public int GetSiteInfo(string idSiteInfo, ref SiteInfo siteInfo)
         {

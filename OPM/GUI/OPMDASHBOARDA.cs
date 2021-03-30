@@ -174,6 +174,7 @@ namespace OPM.GUI
                     MessageBox.Show(temp[1]);
                     purchaseOderInfor.requestDashBoardOpenNTKTForm = new PurchaseOderInfor.RequestDashBoardOpenNTKTForm(OpenNTKTForm);
                     purchaseOderInfor.SetValueItemForPO(temp[1]);
+
                     OpenChidForm(purchaseOderInfor);
                     break;
                 case ConstantVar.DPType:
@@ -389,7 +390,7 @@ namespace OPM.GUI
             NTKTInfor nTKTInfor= new NTKTInfor();
             nTKTInfor.UpdateCatalogPanel = new NTKTInfor.UpdateCatalogDelegate(GetCatalogvalue);
             nTKTInfor.SetKHMS(strKHMS);
-
+            nTKTInfor.requestDashBoardPurchaseOderForm = new NTKTInfor.RequestDashBoardPurchaseOderForm(OpenPOForm);
             strContractID = strContractID.Replace("Contract_","");
             nTKTInfor.SetContractID(strContractID);
             nTKTInfor.SetPOID(strPOID);

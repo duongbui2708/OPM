@@ -156,7 +156,7 @@ namespace OPM.OPMEnginee
                 nTKT.POID = (string)ds.Tables[0].Rows[0].ItemArray[1];
                 nTKT.NumberOfDevice = (int)ds.Tables[0].Rows[0].ItemArray[2];
                 nTKT.DateDuKienNTKT = ((DateTime)ds.Tables[0].Rows[0].ItemArray[3]).ToString("yyyy-MM-dd");
-                nTKT.getCreateDate = ((DateTime)ds.Tables[0].Rows[0].ItemArray[5]).ToString("yyyy-MM-dd");
+                //nTKT.getCreateDate = ((DateTime)ds.Tables[0].Rows[0].ItemArray[5]).ToString("yyyy-MM-dd");
             }
             else
             {
@@ -176,7 +176,7 @@ namespace OPM.OPMEnginee
                 nTKT.POID = (string)ds.Tables[0].Rows[0].ItemArray[1];
                 nTKT.NumberOfDevice = (int)ds.Tables[0].Rows[0].ItemArray[2];
                 nTKT.DateDuKienNTKT = ((DateTime)ds.Tables[0].Rows[0].ItemArray[3]).ToString("yyyy-MM-dd");
-                nTKT.getCreateDate = ((DateTime)ds.Tables[0].Rows[0].ItemArray[5]).ToString("yyyy-MM-dd");
+                //nTKT.getCreateDate = ((DateTime)ds.Tables[0].Rows[0].ItemArray[5]).ToString("yyyy-MM-dd");
             }
             else
             {
