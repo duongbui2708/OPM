@@ -31,7 +31,7 @@ namespace OPM.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDescriptionA = new System.Windows.Forms.Button();
             this.tbContract = new System.Windows.Forms.TextBox();
             this.tbBidName = new System.Windows.Forms.TextBox();
             this.tbAccountingCode = new System.Windows.Forms.TextBox();
@@ -60,10 +60,8 @@ namespace OPM.GUI
             this.button3 = new System.Windows.Forms.Button();
             this.txbGaranteeValue = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txbGaranteeActiveDate = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.dateTimePickerDateSignedPO = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDurationDateContract = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerActiveDateContract = new System.Windows.Forms.DateTimePicker();
@@ -71,17 +69,19 @@ namespace OPM.GUI
             this.txbKHMS = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.ExpirationDate = new System.Windows.Forms.DateTimePicker();
+            this.txbGaranteeActiveDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnDescriptionA
             // 
-            this.button1.Location = new System.Drawing.Point(369, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Desc...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDescriptionA.Location = new System.Drawing.Point(369, 365);
+            this.btnDescriptionA.Name = "btnDescriptionA";
+            this.btnDescriptionA.Size = new System.Drawing.Size(75, 23);
+            this.btnDescriptionA.TabIndex = 0;
+            this.btnDescriptionA.Text = "Desc...";
+            this.btnDescriptionA.UseVisualStyleBackColor = true;
+            this.btnDescriptionA.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbContract
             // 
@@ -113,6 +113,7 @@ namespace OPM.GUI
             this.button2.TabIndex = 2;
             this.button2.Text = "Desc...";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -322,22 +323,14 @@ namespace OPM.GUI
             this.label12.TabIndex = 3;
             this.label12.Text = "Giá Trị Bảo Lãnh";
             // 
-            // txbGaranteeActiveDate
-            // 
-            this.txbGaranteeActiveDate.Location = new System.Drawing.Point(140, 335);
-            this.txbGaranteeActiveDate.Name = "txbGaranteeActiveDate";
-            this.txbGaranteeActiveDate.Size = new System.Drawing.Size(100, 23);
-            this.txbGaranteeActiveDate.TabIndex = 7;
-            this.txbGaranteeActiveDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(10, 340);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 15);
+            this.label13.Size = new System.Drawing.Size(127, 15);
             this.label13.TabIndex = 3;
-            this.label13.Text = "Hiệu Lực Bảo Lãnh";
+            this.label13.Text = "Ngày hết hạn bảo lãnh";
             // 
             // label14
             // 
@@ -348,15 +341,6 @@ namespace OPM.GUI
             this.label14.Size = new System.Drawing.Size(21, 20);
             this.label14.TabIndex = 3;
             this.label14.Text = "%";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(249, 335);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(188, 15);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "ngày làm việc kể từ ngày đặt hàng";
             // 
             // dateTimePickerDateSignedPO
             // 
@@ -413,6 +397,21 @@ namespace OPM.GUI
             this.label18.TabIndex = 14;
             this.label18.Text = "Ngày";
             // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.Location = new System.Drawing.Point(245, 336);
+            this.ExpirationDate.Name = "ExpirationDate";
+            this.ExpirationDate.Size = new System.Drawing.Size(200, 23);
+            this.ExpirationDate.TabIndex = 15;
+            // 
+            // txbGaranteeActiveDate
+            // 
+            this.txbGaranteeActiveDate.Location = new System.Drawing.Point(140, 336);
+            this.txbGaranteeActiveDate.Name = "txbGaranteeActiveDate";
+            this.txbGaranteeActiveDate.Size = new System.Drawing.Size(79, 23);
+            this.txbGaranteeActiveDate.TabIndex = 16;
+            this.txbGaranteeActiveDate.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // ContractInfoChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -420,6 +419,8 @@ namespace OPM.GUI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(456, 550);
+            this.Controls.Add(this.txbGaranteeActiveDate);
+            this.Controls.Add(this.ExpirationDate);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txbKHMS);
@@ -427,7 +428,6 @@ namespace OPM.GUI
             this.Controls.Add(this.dateTimePickerActiveDateContract);
             this.Controls.Add(this.dateTimePickerDurationDateContract);
             this.Controls.Add(this.dateTimePickerDateSignedPO);
-            this.Controls.Add(this.txbGaranteeActiveDate);
             this.Controls.Add(this.txbGaranteeValue);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnSave);
@@ -436,7 +436,6 @@ namespace OPM.GUI
             this.Controls.Add(this.btnNewPO);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
@@ -459,7 +458,7 @@ namespace OPM.GUI
             this.Controls.Add(this.tbAccountingCode);
             this.Controls.Add(this.tbBidName);
             this.Controls.Add(this.tbContract);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDescriptionA);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ContractInfoChildForm";
             this.Text = "ContractInfoChildForm";
@@ -470,7 +469,7 @@ namespace OPM.GUI
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDescriptionA;
         private System.Windows.Forms.TextBox tbContract;
         private System.Windows.Forms.TextBox tbBidName;
         private System.Windows.Forms.TextBox tbAccountingCode;
@@ -500,10 +499,8 @@ namespace OPM.GUI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txbGaranteeValue;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txbGaranteeActiveDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateSignedPO;
         private System.Windows.Forms.DateTimePicker dateTimePickerDurationDateContract;
         private System.Windows.Forms.DateTimePicker dateTimePickerActiveDateContract;
@@ -511,5 +508,7 @@ namespace OPM.GUI
         private System.Windows.Forms.TextBox txbKHMS;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DateTimePicker ExpirationDate;
+        private System.Windows.Forms.TextBox txbGaranteeActiveDate;
     }
 }

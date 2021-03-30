@@ -16,6 +16,7 @@ namespace OPM.GUI
 
         public PurchaseOderInfor objPurchaseOder= new PurchaseOderInfor();
 
+        
 
         public OPMDASHBOARDA()
         {
@@ -23,6 +24,7 @@ namespace OPM.GUI
             //var addedDate = DateTime.Now.Date.AddDays(10);
             TreeNode node = null;
             InitCatalogAdmin(node, null);
+            
         }
 
         private int LoadCatalogAdmin()
@@ -76,6 +78,7 @@ namespace OPM.GUI
             treeView1.Nodes[0].Nodes[0].Nodes.Add(strNewNode);
         }
         private Form activeForm = null;
+        private UserControl activateUserControl = null;
         private  void OpenChidForm(Form childForm)
         {
             if (null != activeForm)
@@ -90,7 +93,17 @@ namespace OPM.GUI
             childForm.Show();
 
         }
+        public void OpenChidForm1(Form childForm)
+        {
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panDescription.Controls.Add(childForm);
+            panDescription.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
 
+        }
         private void OpenChidForm2(Form childForm, string strTypeForm, object strParam)
         {
             if (null != activeForm)
@@ -143,18 +156,23 @@ namespace OPM.GUI
                     contractInfoChildForm.UpdateCatalogPanel = new ContractInfoChildForm.UpdateCatalogDelegate(GetCatalogvalue);
                     /*DASHBOAD GET REQEST FROM CONTRACT GUI*/
                     contractInfoChildForm.RequestDashBoardOpenPOForm = new ContractInfoChildForm.RequestDashBoardOpenChildForm(OpenPOForm);
+                    
                     contractInfoChildForm.SetValueItemForm(temp[1]);
+                    
 
                     //PurchaseOderInfor purchaseOderInfor1 = new PurchaseOderInfor();
                     //purchaseOderInfor1.requestDashBoardOpenNTKTForm = new PurchaseOderInfor.RequestDashBoardOpenNTKTForm(OpenNTKTForm);
 
-                    OpenChidForm(contractInfoChildForm); 
+                    OpenChidForm(contractInfoChildForm);
+                    contractInfoChildForm.requestDashBoardOpendescriptionForm = new ContractInfoChildForm.RequestDashBoardOpenDescriptionForm(OpenDescription);
+
                     break;
                 case ConstantVar.POType:
                     /*Display PO */
                     PurchaseOderInfor purchaseOderInfor  = new PurchaseOderInfor();
                     purchaseOderInfor.UpdateCatalogPanel = new PurchaseOderInfor.UpdateCatalogDelegate(GetCatalogvalue);
                     MessageBox.Show(temp[1]);
+                    purchaseOderInfor.requestDashBoardOpenNTKTForm = new PurchaseOderInfor.RequestDashBoardOpenNTKTForm(OpenNTKTForm);
                     purchaseOderInfor.SetValueItemForPO(temp[1]);
                     OpenChidForm(purchaseOderInfor);
                     break;
@@ -186,6 +204,7 @@ namespace OPM.GUI
         private void contextMenuStrip_Click(object sender, EventArgs e)
         {
             OpenChidForm(new ContractInfoChildForm());
+
         }
 
         private void contextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -206,6 +225,8 @@ namespace OPM.GUI
 
                 /*Open NTKT Form*/
                 purchaseOderInfor.requestDashBoardOpenNTKTForm = new PurchaseOderInfor.RequestDashBoardOpenNTKTForm(OpenNTKTForm);
+
+                contractInfoChildForm.requestDashBoardOpendescriptionForm = new ContractInfoChildForm.RequestDashBoardOpenDescriptionForm(OpenDescription);
 
                 OpenChidForm(contractInfoChildForm);
             }
@@ -353,6 +374,8 @@ namespace OPM.GUI
             purchaseOderInfor.requestDashBoardOpenConfirmPOForm = new PurchaseOderInfor.RequestDashBoardOpenConfirmForm(OpenConfirmPOForm);
 
             /**/
+            ContractInfoChildForm contractInfoChildForm = new ContractInfoChildForm();
+            contractInfoChildForm.requestDashBoardOpendescriptionForm = new ContractInfoChildForm.RequestDashBoardOpenDescriptionForm(OpenDescription);
             strIDContract = strIDContract.Replace("Contract_","");
             purchaseOderInfor.SetTxbIDContract(strIDContract);
             purchaseOderInfor.SetTxbKHMS(strKHMS);
@@ -387,7 +410,23 @@ namespace OPM.GUI
             OpenChidForm(confirmPO);
             return;
         }
-
+        public void OpenDescription(String idSite)
+        {
+          
+            DescriptionSiteForm descriptionSiteForm = new DescriptionSiteForm();            
+            SiteInfo siteInfo = new SiteInfo();
+            
+            siteInfo.GetSiteInfo(idSite, ref siteInfo);
+            descriptionSiteForm.setId(siteInfo.Id);
+            descriptionSiteForm.setAccount(siteInfo.Account);
+            descriptionSiteForm.setAddress(siteInfo.Address);
+            descriptionSiteForm.setFax(siteInfo.Tin);
+            descriptionSiteForm.setHeadquater(siteInfo.HeadquaterInfo);
+            descriptionSiteForm.setPhone(siteInfo.Phonenumber);
+            descriptionSiteForm.setRepresentative(siteInfo.Representative);
+            OpenChidForm1(descriptionSiteForm);
+            return;
+        }
 
     }
 }

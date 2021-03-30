@@ -41,10 +41,10 @@ namespace OPM.GUI
             newPO.IDPO = txbPOCode.Text;
             newPO.PONumber = txbPOName.Text;
             newPO.NumberOfDevice = float.Parse(txbNumberDevice.Text);
-            newPO.DateCreatedPO = TimePickerDateCreatedPO.Value.ToString("dd-MM-yyyy");
-            newPO.DurationConfirmPO = TimePickerDateConfirmPO.Value.ToString("dd-MM-yyyy");
-            newPO.DefaultActiveDatePO = TimepickerDefaultActive.Value.ToString("dd-MM-yyyy");
-            newPO.DeadLinePO = TimePickerDeadLinePO.Value.ToString("dd-MM-yyyy");
+            newPO.DateCreatedPO = TimePickerDateCreatedPO.Value.ToString("yyyy-MM-dd");
+            newPO.DurationConfirmPO = TimePickerDateConfirmPO.Value.ToString("yyyy-MM-dd");
+            newPO.DefaultActiveDatePO = TimepickerDefaultActive.Value.ToString("yyyy-MM-dd");
+            newPO.DeadLinePO = TimePickerDeadLinePO.Value.ToString("yyyy-MM-dd");
             newPO.TotalValuePO = float.Parse(txbValuePO.Text);
 
             /*Create Folder Contract on F Disk*/

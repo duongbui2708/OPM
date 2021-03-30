@@ -6,6 +6,6 @@ namespace OPM.OPMEnginee
 {
     interface ISiteInfo
     {
-        public int GetSiteInfo(string idSiteInfo, ISiteInfo siteInfo);
+        public int GetSiteInfo(string idSiteInfo,ref SiteInfo siteInfo);
     }
 }

@@ -438,9 +438,6 @@ namespace OPM.WordHandler
                 FindAndReplace(wordApp, "<Address_Site_B>", " " + siteInfo.Address + " ");
                 FindAndReplace(wordApp, "<LandLine_Site_B>", " " + siteInfo.Phonenumber + " ");
                 FindAndReplace(wordApp, "<Fax_Site_B>", " " + siteInfo.Tin + " ");
-                FindAndReplace(wordApp, "<LandLine_Site_A>", " " + siteInfo.LandlineSiteA + " ");
-                FindAndReplace(wordApp, "<Fax_Site_A>", " " + siteInfo.FaxSiteA + " ");
-
 
             }
             else

@@ -16,8 +16,6 @@ namespace OPM.OPMEnginee
         private string _tin;
         private string _account;
         private string _representative;
-        private string _landlineSiteA;
-        private string _faxSiteA;
 
         public SiteInfo()
         {
@@ -33,8 +31,6 @@ namespace OPM.OPMEnginee
             Tin = tin;
             Account = account;
             Representative = representative;
-            LandlineSiteA = landlineSiteA;
-            FaxSiteA = faxSiteA;
         }
 
         public string Id { get => _id; set => _id = value; }
@@ -45,12 +41,29 @@ namespace OPM.OPMEnginee
         public string Tin { get => _tin; set => _tin = value; }
         public string Account { get => _account; set => _account = value; }
         public string Representative { get => _representative; set => _representative = value; }
-        public string LandlineSiteA { get => _landlineSiteA; set => _landlineSiteA = value; }
-        public string FaxSiteA { get => _faxSiteA; set => _faxSiteA = value; }
+        
 
-        public int GetSiteInfo(string idSiteInfo, ISiteInfo siteInfo)
+        public int GetSiteInfo(string idSiteInfo, ref SiteInfo siteInfo)
         {
-            throw new NotImplementedException();
+            string strQueryOne = "SELECT DISTINCT * FROM Site_Info  WHERE Site_Info.id =" + "'" + idSiteInfo + "'";
+            DataSet ds = new DataSet();
+            int ret = OPMDBHandler.fQuerryData(strQueryOne, ref ds);
+            if (0 != ds.Tables.Count)
+            {
+                siteInfo.Id = (string)ds.Tables[0].Rows[0].ItemArray[0];
+                siteInfo.Type = (string)ds.Tables[0].Rows[0].ItemArray[1];
+                siteInfo.HeadquaterInfo = (string)ds.Tables[0].Rows[0].ItemArray[2];
+                siteInfo.Address = (string)ds.Tables[0].Rows[0].ItemArray[3];
+                siteInfo.Phonenumber = (string)ds.Tables[0].Rows[0].ItemArray[4];
+                siteInfo.Tin = (string)ds.Tables[0].Rows[0].ItemArray[5];
+                siteInfo.Account = (string)ds.Tables[0].Rows[0].ItemArray[6];
+                siteInfo.Representative = (string)ds.Tables[0].Rows[0].ItemArray[7];
+            }
+            else
+            {
+                return 0;
+            }
+            return 1;
         }
 
 
@@ -61,16 +74,14 @@ namespace OPM.OPMEnginee
             int ret = OPMDBHandler.fQuerryData(strQueryOne, ref ds);
             if (0 != ds.Tables.Count)
             {
-                siteInfo.Id = (string)ds.Tables[0].Rows[0].ItemArray[16];
-                siteInfo.Type = (string)ds.Tables[0].Rows[0].ItemArray[16];
+                siteInfo.Id = (string)ds.Tables[0].Rows[0].ItemArray[14];
+                siteInfo.Type = (string)ds.Tables[0].Rows[0].ItemArray[15];
                 siteInfo.HeadquaterInfo = (string)ds.Tables[0].Rows[0].ItemArray[16];
                 siteInfo.Address = (string)ds.Tables[0].Rows[0].ItemArray[17];
                 siteInfo.Phonenumber = (string)ds.Tables[0].Rows[0].ItemArray[18];
                 siteInfo.Tin = (string)ds.Tables[0].Rows[0].ItemArray[19];
                 siteInfo.Account = (string)ds.Tables[0].Rows[0].ItemArray[20];
                 siteInfo.Representative = (string)ds.Tables[0].Rows[0].ItemArray[21];
-                siteInfo.LandlineSiteA = (string)ds.Tables[0].Rows[0].ItemArray[22];
-                siteInfo.FaxSiteA = (string)ds.Tables[0].Rows[0].ItemArray[23];
             }
             else
             {

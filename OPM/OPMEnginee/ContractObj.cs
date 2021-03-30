@@ -24,11 +24,13 @@ namespace OPM.OPMEnginee
         private string _vbGuranteeDoc;
         private string _siteA;
         private string _siteB;
+        private string _experationDate;
         public ContractObj()
         {
             _phuluc = String.Empty;
             _vbGuranteeDoc = String.Empty;
         }
+
         ~ContractObj()
         {
 
@@ -117,6 +119,8 @@ namespace OPM.OPMEnginee
             get { return _siteB; }
         }
 
+        public string ExperationDate { get => _experationDate; set => _experationDate = value; }
+
         public List<IContract> GetAllContract()
         {
             throw new NotImplementedException();
@@ -160,6 +164,7 @@ namespace OPM.OPMEnginee
                 contract.SiteA = (string)ds.Tables[0].Rows[0].ItemArray[9];
                 contract.SiteB = (string)ds.Tables[0].Rows[0].ItemArray[10];
                 contract.KHMS = ds.Tables[0].Rows[0].ItemArray[13].ToString();
+                contract.ExperationDate= ds.Tables[0].Rows[0].ItemArray[14].ToString();
             }
             else
             {
@@ -189,6 +194,7 @@ namespace OPM.OPMEnginee
                 contract.SiteA = (string)ds.Tables[0].Rows[0].ItemArray[9];
                 contract.SiteB = (string)ds.Tables[0].Rows[0].ItemArray[10];
                 contract.KHMS = ds.Tables[0].Rows[0].ItemArray[13].ToString();
+                contract.ExperationDate = ds.Tables[0].Rows[0].ItemArray[14].ToString();
             }
             else
             {
@@ -228,6 +234,8 @@ namespace OPM.OPMEnginee
             strInsertContractNew += newContract.VbGuranteeDoc;
             strInsertContractNew += "',N'";
             strInsertContractNew += newContract.KHMS;
+            strInsertContractNew += "','";
+            strInsertContractNew += newContract.ExperationDate;
             strInsertContractNew += "')";
             int ret = OPMDBHandler.fInsertData(strInsertContractNew);
             if(0==ret)

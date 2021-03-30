@@ -46,7 +46,7 @@ namespace OPM.GUI
             this.toolStripMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuExport = new System.Windows.Forms.ToolStripMenuItem();
             this.panContent = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panDescription = new System.Windows.Forms.Panel();
             this.panHeader.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSearch.SuspendLayout();
@@ -130,7 +130,7 @@ namespace OPM.GUI
             this.panCatalog.Controls.Add(this.treeView1);
             this.panCatalog.Location = new System.Drawing.Point(9, 100);
             this.panCatalog.Name = "panCatalog";
-            this.panCatalog.Size = new System.Drawing.Size(246, 455);
+            this.panCatalog.Size = new System.Drawing.Size(246, 465);
             this.panCatalog.TabIndex = 1;
             // 
             // treeView1
@@ -144,7 +144,7 @@ namespace OPM.GUI
             this.treeView1.LabelEdit = true;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(246, 455);
+            this.treeView1.Size = new System.Drawing.Size(246, 465);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeView1_AfterLabelEdit);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
@@ -201,25 +201,25 @@ namespace OPM.GUI
             this.panContent.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panContent.Location = new System.Drawing.Point(261, 5);
             this.panContent.Name = "panContent";
-            this.panContent.Size = new System.Drawing.Size(471, 550);
+            this.panContent.Size = new System.Drawing.Size(488, 560);
             this.panContent.TabIndex = 2;
             // 
-            // panel1
+            // panDescription
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(738, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 550);
-            this.panel1.TabIndex = 3;
+            this.panDescription.Location = new System.Drawing.Point(738, 5);
+            this.panDescription.Name = "panDescription";
+            this.panDescription.Size = new System.Drawing.Size(262, 560);
+            this.panDescription.TabIndex = 3;
             // 
             // OPMDASHBOARDA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1001, 571);
+            this.Controls.Add(this.panDescription);
             this.Controls.Add(this.panContent);
             this.Controls.Add(this.panCatalog);
             this.Controls.Add(this.panHeader);
@@ -241,7 +241,7 @@ namespace OPM.GUI
         private System.Windows.Forms.Panel panHeader;
         private System.Windows.Forms.Panel panCatalog;
         private System.Windows.Forms.Panel panContent;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panDescription;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuRefresh;

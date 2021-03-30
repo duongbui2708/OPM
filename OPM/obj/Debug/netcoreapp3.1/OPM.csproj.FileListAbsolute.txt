@@ -38,3 +38,4 @@ F:\OPM\OPM\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
 F:\OPM\OPM\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
 F:\OPM\OPM\obj\Debug\netcoreapp3.1\OPM.csprojAssemblyReference.cache
 F:\OPM\OPM\obj\Debug\netcoreapp3.1\OPM.genruntimeconfig.cache
+F:\OPM\OPM\obj\Debug\netcoreapp3.1\OPM.GUI.DescriptionSiteForm.resources
